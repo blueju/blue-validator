@@ -5,24 +5,32 @@
 (function (global, plugin, pluginName) {
   return plugin.call(global, global.jQuery, pluginName)
 })(this, function ($, pluginName) {
-  
+
   // rules【规则字典】
   const rules = {
     "require": function () {
-      console.log('判断require：' + !!this.val());
-      return !!this.val()
+      let result = !!this.val()
+      console.log('判断require：' + result);
+      return result
     },
     "email": function () {
-      console.log('判断email：' + /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/.test(this.val()));
-      return /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/.test(this.val())
+      let result = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/.test(this.val())
+      console.log('判断email：' + result);
+      return result
     },
+    "maxlength": function () {
+      let result = this.val().length < this.data('bv-maxlength') ? true : false
+      console.log('判断maxlength：' + result);
+      return result
+    }
     // ...
   }
 
   // errorNotice【错误提示】
   const errorNotice = {
     "require": "该项不得为空",
-    "email": "请输入正确的邮箱"
+    "email": "请输入正确的邮箱",
+    "maxlength": "注意最大长度"
   }
 
   // start
@@ -39,7 +47,7 @@
         // 【使用到了jQuery的each的特殊用法】
         // 遍历规则字典并匹配，如果有匹配的规则，就执行该规则对应的判断函数
         $.each(rules, (ruleName, ruleFunction) => {
-          // 预处理（删除原有样式）
+          // 删除原有样式
           $(this).parents('.form-group').removeClass("has-success has-error")
           $(this).parents('.form-group').find('.help-block').remove()
           // 匹配
