@@ -1,57 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>blue-validator</title>
+    <link rel="stylesheet" href="static/bootstrap.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <title>blue-validator</title>
-  <link rel="stylesheet" href="static/bootstrap.css">
-</head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div
+          class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xs-offset-4 col-sm-offset-4 col-md-offset-4 col-lg-offset-4"
+        >
+          <form class="form-horizontal">
+            <!-- 表单标题 -->
+            <div class="form-group" blue->
+              <legend>基于Bootstrap和jQuery的表单验证插件</legend>
+            </div>
 
-<body>
+            <!-- 邮箱 -->
+            <div class="form-group">
+              <label>邮箱</label>
+              <input
+                class="form-control"
+                type="text"
+                placeholder="请输入邮箱"
+                data-bv="true"
+                data-bv-require="true"
+                data-bv-email="true"
+              />
+            </div>
 
+            <!-- 手机号码 -->
+            <div class="form-group">
+              <label>手机号码</label>
+              <input
+                class="form-control"
+                type="text"
+                placeholder="请输入手机号码"
+                data-bv="true"
+                data-bv-require="true"
+                data-bv-phone="true"
+              />
+            </div>
 
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xs-offset-4 col-sm-offset-4 col-md-offset-4 col-lg-offset-4">
-        <form class="form-horizontal">
-
-          <!-- 表单标题 -->
-          <div class="form-group" blue->
-            <legend>基于Bootstrap和jQuery的表单验证插件</legend>
-          </div>
-
-          <!-- 邮箱 -->
-          <div class="form-group">
-            <label>邮箱</label>
-            <input class="form-control" type="text" placeholder="请输入邮箱" data-bv="true" data-bv-require="true"
-                   data-bv-email="true">
-          </div>
-
-          <!-- 手机号码 -->
-          <div class="form-group">
-            <label>手机号码</label>
-            <input class="form-control" type="text" placeholder="请输入邮箱" data-bv="true" data-bv-require="true">
-          </div>
-
-          <!-- 普通输入框 -->
-          <div class="form-group">
-            <label>文本输入</label>
-            <input class="form-control" type="text" placeholder="请输入文本" data-bv="true" data-bv-maxlength=11>
-          </div>
-
-        </form>
+            <!-- 普通输入框 -->
+            <div class="form-group">
+              <label>文本输入</label>
+              <input
+                class="form-control"
+                type="text"
+                placeholder="请输入文本"
+                data-bv="true"
+                data-bv-maxlength="11"
+              />
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- import jquery bootstrap -->
-  <script src="static/jquery.js"></script>
-  <script src="static/bootstrap.js"></script>
-  <!-- import blue-validator -->
-  <script src="./blue-validator.js"></script>
-  <script>
-    // blueValidator start
-    $('form').blueValidator()
-  </script>
-</body>
-
+    <!-- import jquery bootstrap -->
+    <script src="static/jquery.js"></script>
+    <script src="static/bootstrap.js"></script>
+    <!-- import blue-validator -->
+    <script src="./blue-validator.js"></script>
+    <script>
+      // blueValidator start
+      $('form').blueValidator()
+    </script>
+  </body>
 </html>

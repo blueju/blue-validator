@@ -22,6 +22,11 @@
       let result = this.val().length < this.data('bv-maxlength') ? true : false
       console.log('判断maxlength：' + result);
       return result
+    },
+    "phone": function () {
+      let result = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/.test(this.val())
+      console.log('判断phone：' + result);
+      return result
     }
     // ...
   }
